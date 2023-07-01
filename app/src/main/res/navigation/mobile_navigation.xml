@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/leagues_fragment">
+    <fragment
+        android:id="@+id/leagues_fragment"
+        android:name="ru.vsu.mobile.footballstats.screen.LeaguesFragment"
+        android:label="Лиги"
+        tools:layout="@layout/fragment_leagues" >
+        <action
+            android:id="@+id/action_leagues_fragment_to_curLeagueFragment"
+            app:destination="@id/curLeagueFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/favorites_fragment"
+        android:name="ru.vsu.mobile.footballstats.screen.FavoritesFragment"
+        android:label="Избранное"
+        tools:layout="@layout/fragment_favorites" >
+        <action
+            android:id="@+id/action_favorites_fragment_to_curLeagueFragment"
+            app:destination="@id/curLeagueFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/curLeagueFragment"
+        android:name="ru.vsu.mobile.footballstats.screen.CurLeagueFragment"
+        android:label="Лига"
+        tools:layout="@layout/fragment_cur_league" >
+        <argument
+            android:name="seasons"
+            app:argType="integer[]" />
+        <argument
+            android:name="league"
+            app:argType="ru.vsu.mobile.footballstats.api.model.league.League" />
+        <argument
+            android:name="countryName"
+            app:argType="string" />
+    </fragment>
+</navigation>
